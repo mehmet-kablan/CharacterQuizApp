@@ -1,0 +1,266 @@
+[
+	{
+		"id": "0",
+		"quote" : "Even the smallest person can change the course of the future.",
+		"owner" : "Galadriel"
+	},
+	{
+		"id": "1",
+		"quote" : "One ring to rule them all, one ring to find them, one ring to bring them all and in the darkness bind them.",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "2",
+		"quote" : "You shall not pass!",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "2",
+		"quote" : "It’s mine. My own. My precious.",
+		"owner" : "Bilbo"
+	},
+	{
+		"id": "3",
+		"quote" : "I would have gone with you to the end, into the very fires of Mordor.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "4",
+		"quote" : "This task was appointed to you. And if you do not find a way, no one will.",
+		"owner" : "Galadriel"
+	},
+	{
+		"id": "5",
+		"quote" : "Fool of a Took!",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "6",
+		"quote" : "Where was Gondor when the Westfold fell?",
+		"owner" : "Theoden"
+	},
+	{
+		"id": "7",
+		"quote" : "They’re taking the Hobbits to Isengard!",
+		"owner" : "Legolas"
+	},
+	{
+		"id": "8",
+		"quote" : "I always liked going south. Somehow, it feels like going downhill.",
+		"owner" : "Treebeard"
+	},
+	{
+		"id": "9",
+		"quote" : "Be silent. Keep your forked tongue behind your teeth.”",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "10",
+		"quote" : "Let this be the hour when we draw swords together. Fell deeds awake. Now for wrath, now for ruin, and the red dawn. Forth, Eorlingas!",
+		"owner" : "Theoden"
+	},
+	{
+		"id": "11",
+		"quote" : "Saruman! A wizard should know better.",
+		"owner" : "Treebeard"
+	},
+	{
+		"id": "12",
+		"quote" : "A red sun rises. Blood has been spilt this night.",
+		"owner" : "Legolas"
+	},
+	{
+		"id": "13",
+		"quote" : "So much death. What can men do against such reckless hate?",
+		"owner" : "Theoden"
+	},
+	{
+		"id": "14",
+		"quote" : "The Beacons of Minas Tirith! The Beacons are lit! Gondor calls for aid.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "15",
+		"quote" : "Death is just another path. One that we all must take.",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "16",
+		"quote" : "I am no man.",
+		"owner" : "Eowyn"
+	},
+	{
+		"id": "17",
+		"quote" : "I can’t carry it for you, but I can carry you.",
+		"owner" : "Sam"
+	},
+	{
+		"id": "18",
+		"quote" : "She’s always hungry. She always needs to feed.”",
+		"owner" : "Gollum"
+	},
+	{
+		"id": "19",
+		"quote" : "That still only counts as one!",
+		"owner" : "Gimli"
+	},
+	{
+		"id": "20",
+		"quote" : "For Frodo.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "21",
+		"quote" : "Not all those who wander are lost.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "22",
+		"quote" : "Deeds will not be less valiant because they are unpraised.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "23",
+		"quote" : "Let him not vow to walk in the dark, who has not seen the nightfall.",
+		"owner" : "Elrond"
+	},
+	{
+		"id": "24",
+		"quote" : "Your time will come. You will face the same Evil, and you will defeat it.",
+		"owner" : "Arwen"
+	},
+	{
+		"id": "25",
+		"quote" : "If more of us valued food and cheer and song above hoarded gold, it would be a merrier world.(from Hobbit)",
+		"owner" : "Thorin"
+	},
+	{
+		"id": "26",
+		"quote" : "But do not despise the lore that has come down from distant years; for oft it may chance that old wives keep in memory word of things that once were needful for the wise to know.",
+		"owner" : "Celeborn"
+	},
+	{
+		"id": "27",
+		"quote" : "Memory is not what the heart desires. That is only a mirror.",
+		"owner" : "Gimli"
+	},
+	{
+		"id": "28",
+		"quote" : "The Quest stands upon the edge of a knife. Stray but a little, and it will fail, to the ruin of all. Yet hope remains while the Company is true.",
+		"owner" : "Galadriel"
+	},
+	{
+		"id": "29",
+		"quote" : "I would rather share one lifetime with you than face all the ages of this world alone.",
+		"owner" : "Arwen"
+	},
+	{
+		"id": "30",
+		"quote" : "The world is indeed full of peril, and in it there are many dark places; but still there is much that is fair, and though in all lands love is now mingled with grief, it grows perhaps the greater.",
+		"owner" : "Haldir"
+	},
+	{
+		"id": "31",
+		"quote" : "It is a strange fate that we should suffer so much fear and doubt over so small a thing … such a little thing.",
+		"owner" : "Boromir"
+	},
+	{
+		"id": "32",
+		"quote" : "Yet such is oft the course of deeds that move the wheels of the world: small hands do them because they must, while the eyes of the great are elsewhere.",
+		"owner" : "Elrond"
+	},
+	{
+		"id": "33",
+		"quote" : "The wise speak only of what they know.",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "34",
+		"quote" : "You can not hide, I see you! There is no life after me. Only death!",
+		"owner" : "Sauron"
+	},
+	{
+		"id": "35",
+		"quote" : "No, thank you! We don't want any more visitors, well-wishers or distant relations!",
+		"owner" : "Bilbo"
+	},
+	{
+		"id": "36",
+		"quote" : "I can avoid being seen, if I wish, but to disappear entirely, that is a rare gift.",
+		"owner" : "Aragorn"
+	},
+	{
+		"id": "37",
+		"quote" : "I would have followed you my brother. My captain. My king.",
+		"owner" : "Boromir"
+	},
+	{
+		"id": "38",
+		"quote" : "War will make corpses of us all.",
+		"owner" : "Faramir"
+	},
+	{
+		"id": "39",
+		"quote" : "The old world will burn in the fires of industry. The forests will fall. A new order will rise.",
+		"owner" : "Saruman"
+	},
+	{
+		"id": "40",
+		"quote" : "I kill where I wish, when I wish. My armor is iron – no blade can pierce me!(from Hobbit)",
+		"owner" : "Smaug"
+	},
+	{
+		"id": "41",
+		"quote" : "Are we not part of this world? Tell me, Mellon, when did we let evil become stronger than us?(from Hobbit)",
+		"owner" : "Tauriel"
+	},
+	{
+		"id": "42",
+		"quote" : "I am fire. I am death.(from Hobbit)",
+		"owner" : "Smaug"
+	},
+	{
+		"id": "43",
+		"quote" : "True courage is about knowing not when to take a life, but when to spare one.(from Hobbit)",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "44",
+		"quote" : "I'm not a warrior, I'm a Hobbit.(from Hobbit)",
+		"owner" : "Bilbo"
+	},
+	{
+		"id": "45",
+		"quote" : "It is the small things, everyday deeds of ordinary folk, that keeps the darkness at bay.(from Hobbit)",
+		"owner" : "Gandalf"
+	},
+	{
+		"id": "46",
+		"quote" : "There's some good in this world, Mr. Frodo, and it's worth fighting for.",
+		"owner" : "Sam"
+	},
+	{
+		"id": "47",
+		"quote" : "What about second breakfast?",
+		"owner" : "Pippin"
+	},
+	{
+		"id": "48",
+		"quote" : "One does not simply walk into Mordor.",
+		"owner" : "Boromir"
+	},
+	{
+		"id": "49",
+		"quote" : "There is courage also, and honor to be found in Men.",
+		"owner" : "Boromir"
+	},
+	{
+		"id": "50",
+		"quote" : "What about side by side with a friend?",
+		"owner" : "Legolas"
+	}
+	
+
+
+
+]
