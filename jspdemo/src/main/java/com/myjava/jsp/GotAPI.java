@@ -19,6 +19,7 @@ public class GotAPI {
 	String owner = "";
 	String ownerName = "";
 	
+	
 	public String[] SetVariables() {
 	try {
         // Create a URL object

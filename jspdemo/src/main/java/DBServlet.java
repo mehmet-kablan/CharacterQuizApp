@@ -5,10 +5,9 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
-import javax.sql.DataSource;
 import com.myjava.jsp.DBConnection;
 
 /**
@@ -26,23 +25,15 @@ public class DBServlet extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    List<String> characters;
+    List<String> characters = new LinkedList<String>();
     DBConnection dbCon = new DBConnection();
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		try {
-			characters = dbCon.getAllGOTCharacters();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		if(request.getSession().getAttribute("theme") == "GOT") {
+		
+		if(request.getSession().getAttribute("Theme") == "GOT") {
 			try {
 				characters = dbCon.getAllGOTCharacters();
 			} catch (ClassNotFoundException e) {
@@ -53,12 +44,22 @@ public class DBServlet extends HttpServlet {
 				e.printStackTrace();
 			}
 		}
-		else if(request.getSession().getAttribute("theme") == "LOTR") {
-			//characters = lotrAPI.getLOTRCharactersList();
+		else if(request.getSession().getAttribute("Theme") == "LOTR") {
+			try {
+				characters = dbCon.getAllLOTRCharacters();
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
 		String searchTerm = request.getParameter("search");
 
         List<String> suggestions = getSuggestions(searchTerm);
+        
+        
         
         response.setContentType("text/plain"); // Important!
         StringBuilder sb = new StringBuilder();
@@ -69,15 +70,15 @@ public class DBServlet extends HttpServlet {
 	}
 	
 	private List<String> getSuggestions(String searchTerm) {
-        List<String> suggestions = new ArrayList<String>();
+        LinkedList<String> suggestions = new LinkedList<String>();
         if (searchTerm == null || searchTerm.isEmpty()) {
-            return suggestions; // Return empty list if search term is null or empty
+            return suggestions;
         }
 
-        String lowerSearchTerm = searchTerm.toLowerCase(); // For case-insensitive search
+        String lowerSearchTerm = searchTerm.toLowerCase(); 
 
         for (String item : characters) {
-            if (item.toLowerCase().contains(lowerSearchTerm)) { // Case-insensitive contains
+            if (item.toLowerCase().contains(lowerSearchTerm)) { 
                 suggestions.add(item);
             }
         }
@@ -92,19 +93,34 @@ public class DBServlet extends HttpServlet {
 		doGet(request, response);
 		
 		String selectedOption = request.getParameter("selectedOption");
+        String theme = request.getSession().getAttribute("Theme").toString();
         
         // Process the selected option (e.g., database query, business logic, etc.)
         String message = "You selected: " + selectedOption;
         Map<String, String> resultMap = null;
 		try {
-			resultMap = dbCon.getGOTCharacterWithName(selectedOption);
-			request.getSession().setAttribute("CharName", resultMap.get("Name"));
-	   	 	request.getSession().setAttribute("House", resultMap.get("House"));
-	   	 	request.getSession().setAttribute("Age", resultMap.get("Age"));
-	   	 	request.getSession().setAttribute("MaritalStatus", resultMap.get("MaritalStatus"));
-	   	 	request.getSession().setAttribute("FirstAppearance", resultMap.get("FirstAppearance"));
-	   	 	request.getSession().setAttribute("Culture", resultMap.get("Culture"));
-	   	 	request.getSession().setAttribute("Religion", resultMap.get("Religion"));
+			if(theme == "GOT") {
+				resultMap = dbCon.getGOTCharacterWithName(selectedOption);
+				request.getSession().setAttribute("CharName", resultMap.get("Name"));
+		   	 	request.getSession().setAttribute("House", resultMap.get("House"));
+		   	 	request.getSession().setAttribute("Age", resultMap.get("Age"));
+		   	 	request.getSession().setAttribute("MaritalStatus", resultMap.get("Relation"));
+		   	 	request.getSession().setAttribute("FirstAppearance", resultMap.get("Episodes"));
+		   	 	request.getSession().setAttribute("Culture", resultMap.get("FirstAppearance"));
+		   	 	request.getSession().setAttribute("Religion", resultMap.get("Culture"));
+			}
+			else if (theme == "LOTR") {
+				resultMap = dbCon.getLOTRCharacterWithName(selectedOption);
+				request.getSession().setAttribute("CharName", resultMap.get("Name"));
+		   	 	request.getSession().setAttribute("House", resultMap.get("House"));
+		   	 	request.getSession().setAttribute("Age", resultMap.get("Age"));
+		   	 	request.getSession().setAttribute("MaritalStatus", resultMap.get("MaritalStatus"));
+		   	 	request.getSession().setAttribute("FirstAppearance", resultMap.get("FirstAppearance"));
+		   	 	request.getSession().setAttribute("Culture", resultMap.get("Culture"));
+		   	 	request.getSession().setAttribute("Religion", resultMap.get("Religion"));
+			}
+			
+			
 	        response.setContentType("text/plain");
 	        
 		} catch (ClassNotFoundException e) {

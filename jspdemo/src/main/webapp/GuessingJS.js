@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $("#searchBox").keyup(function() {
         let searchTerm = $(this).val();
-
         if (searchTerm.length >= 0) {
             $.ajax({
                 type: "GET",
@@ -9,6 +8,7 @@ $(document).ready(function() {
                 data: { search: searchTerm },
                 success: function(response) {
                     $("#suggestions").empty();
+					$("#suggestions").append("<option disabled selected> -- select an option -- </option>");
                     let items = response.split("\n");
                     for (let i = 0; i < items.length; i++) {
                         let item = items[i];
@@ -23,7 +23,6 @@ $(document).ready(function() {
             });
         } else {
             $("#suggestions").empty();
-            $("#suggestions").append("<option>          </option>");
         }
     });
 });

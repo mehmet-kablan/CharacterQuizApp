@@ -29,7 +29,7 @@ public class DBConnection {
             
             Statement stmt = conn.createStatement();
             Random rand = new Random();
-            int randomID = rand.nextInt(1,10);
+            int randomID = rand.nextInt(1,62);
             String query = "SELECT * FROM GOTCharacters WHERE ID = '" + randomID + "'";
             ResultSet rs = stmt.executeQuery(query);
             resultMap = new HashMap<>();
@@ -37,12 +37,13 @@ public class DBConnection {
             while (rs.next()) {
 
             	resultMap.put("Name", rs.getString("Name"));
+            	resultMap.put("Gender", rs.getString("Gender"));
             	resultMap.put("House", rs.getString("House"));
             	resultMap.put("Age", rs.getString("Age"));
-            	resultMap.put("MaritalStatus", rs.getString("MaritalStatus"));
+            	resultMap.put("Relation", rs.getString("Relation"));
+            	resultMap.put("Episodes", rs.getString("Episodes"));
             	resultMap.put("FirstAppearance", rs.getString("FirstAppearance"));
             	resultMap.put("Culture", rs.getString("Culture"));
-            	resultMap.put("Religion", rs.getString("Religion"));
             	
             }
 
@@ -50,7 +51,6 @@ public class DBConnection {
             rs.close();
             stmt.close();
             conn.close();
-            System.out.println("Connected to Database!");
         } catch (ClassNotFoundException e) {
             System.out.println("JDBC Driver not found!");
             e.printStackTrace();
@@ -90,18 +90,101 @@ public class DBConnection {
         ResultSet rs = stmt.executeQuery();
         Map<String, String> resultMap = new HashMap<>();
         while(rs.next()) {
-        	System.out.println(rs.getString("Name"));
         	resultMap.put("Name", rs.getString("Name"));
+        	resultMap.put("Gender", rs.getString("Gender"));
         	resultMap.put("House", rs.getString("House"));
         	resultMap.put("Age", rs.getString("Age"));
-        	resultMap.put("MaritalStatus", rs.getString("MaritalStatus"));
+        	resultMap.put("Relation", rs.getString("Relation"));
+        	resultMap.put("Episodes", rs.getString("Episodes"));
         	resultMap.put("FirstAppearance", rs.getString("FirstAppearance"));
         	resultMap.put("Culture", rs.getString("Culture"));
-        	resultMap.put("Religion", rs.getString("Religion"));
         }
         
         return resultMap;
     }
   
+    public static Map<String, String> getLOTRCharacter() {
+    	Connection conn = null;
+    	Map<String, String> resultMap = new HashMap<>();
+        try {
+            // Load the SQL Server JDBC Driver
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+            
+            // Establish the connection
+            conn = DriverManager.getConnection(URL, USER, PASSWORD);
+            
+            Statement stmt = conn.createStatement();
+            Random rand = new Random();
+            int randomID = rand.nextInt(1,24);
+            String query = "SELECT * FROM LOTRCharacters WHERE ID = '" + randomID + "'";
+            ResultSet rs = stmt.executeQuery(query);
+            resultMap = new HashMap<>();
+            
+            while (rs.next()) {
 
+            	resultMap.put("Name", rs.getString("Name"));
+            	resultMap.put("Gender", rs.getString("Gender"));
+            	resultMap.put("Race", rs.getString("Race"));
+            	resultMap.put("Allegiance", rs.getString("Allegiance"));
+            	resultMap.put("Weapon", rs.getString("Weapon"));
+            	resultMap.put("Culture", rs.getString("Culture"));
+            	resultMap.put("VitalStatus", rs.getString("VitalStatus"));
+            	resultMap.put("MaritalStatus", rs.getString("MaritalStatus"));
+            	
+            }
+
+            // Close resources
+            rs.close();
+            stmt.close();
+            conn.close();
+        } catch (ClassNotFoundException e) {
+            System.out.println("JDBC Driver not found!");
+            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("SQL Connection failed!");
+            e.printStackTrace();
+        }
+        
+        
+        return resultMap;
+    }
+
+    public List<String> getAllLOTRCharacters() throws SQLException, ClassNotFoundException{
+    	List<String> characters = new ArrayList<String>();
+    	
+    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        Statement stmt = conn.createStatement();
+        String query = "SELECT Name FROM LOTRCharacters";
+        ResultSet rs = stmt.executeQuery(query);
+        
+        while(rs.next()) {
+        	characters.add(rs.getString(1));
+        }
+        
+    	return characters;
+    }
+    
+public Map<String, String> getLOTRCharacterWithName(String name) throws SQLException, ClassNotFoundException{
+    	
+    	Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        Connection conn = DriverManager.getConnection(URL, USER, PASSWORD);
+        String query = "SELECT * FROM LOTRCharacters WHERE CAST(Name AS VARCHAR(MAX)) = ?";
+        PreparedStatement stmt = conn.prepareStatement(query);
+        stmt.setString(1, name.trim());
+        ResultSet rs = stmt.executeQuery();
+        Map<String, String> resultMap = new HashMap<>();
+        while(rs.next()) {
+        	resultMap.put("Name", rs.getString("Name"));
+        	resultMap.put("Gender", rs.getString("Gender"));
+        	resultMap.put("Race", rs.getString("Race"));
+        	resultMap.put("Allegiance", rs.getString("Allegiance"));
+        	resultMap.put("Weapon", rs.getString("Weapon"));
+        	resultMap.put("Culture", rs.getString("Culture"));
+        	resultMap.put("VitalStatus", rs.getString("VitalStatus"));
+        	resultMap.put("MaritalStatus", rs.getString("MaritalStatus"));
+        }
+        
+        return resultMap;
+    }
 }
